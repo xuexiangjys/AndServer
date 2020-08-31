@@ -39,6 +39,7 @@ import com.yanzhenjie.andserver.util.MediaType;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
@@ -74,7 +75,7 @@ class TestController {
 
     @Addition(stringType = "login", booleanType = true)
     @GetMapping(path = "/userInfo", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    UserInfo userInfo(@CookieValue("account") String account) {
+    UserInfo userInfo(@CookieValue("account") String account) throws SQLException {
         Logger.i("Account: " + account);
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId("123");
